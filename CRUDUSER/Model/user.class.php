@@ -46,8 +46,12 @@ class User {
     }
 
     public function getbyemail() {
-        return $this->email;
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$this->email]);
+        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $userData;
     }
+    
 
     public function addUser() {
         $photo_url = isset($this->photo_url) ? $this->photo_url : '';
@@ -107,39 +111,97 @@ class User {
         }
     }
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'path/to/PHPMailer/src/Exception.php';
-require 'path/to/PHPMailer/src/PHPMailer.php';
-require 'path/to/PHPMailer/src/SMTP.php';
-    public function sendPasswordResetEmail($email, $token) {
-        $mail = new PHPMailer(true);
-
+    public function validateResetToken($token) {
+        $query = "SELECT * FROM users WHERE reset_token = ? AND email = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$token, $this->email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $user ? true : false;
+    }
+    
+    public function updatePassword($hashedPassword, $confirmedPassword) {
         try {
-            // Paramètres du serveur SMTP
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.example.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'your_username';
-            $mail->Password   = 'your_password';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
-
-            // Paramètres du message
-            $mail->setFrom('your_email@example.com', 'Your Name');
-            $mail->addAddress($email);
-
-            // Contenu du message
-            $mail->isHTML(true);
-            $mail->Subject = 'Réinitialisation du mot de passe';
-            $mail->Body    = 'Pour réinitialiser votre mot de passe, cliquez sur ce lien : <a href="https://yourwebsite.com/reset-password.php?token=' . $token . '">Réinitialiser le mot de passe</a>';
-
-            $mail->send();
-            return true;
+            $query = $this->conn->prepare("UPDATE users SET mdp = ?, cmdp = ? WHERE email = ?");
+            $query->execute([$hashedPassword, $confirmedPassword, $this->email]);
+    
+            return $query->rowCount() > 0;
         } catch (Exception $e) {
+            echo "Erreur lors de la mise à jour du mot de passe : " . $e->getMessage();
             return false;
         }
     }
+    
+    public function updateResetToken($resetToken, $expirationTime) {
+        try {
+            $query = $this->conn->prepare("UPDATE users SET reset_token = ?, reset_token_expires = ? WHERE email = ?");
+            $query->execute([$resetToken, $expirationTime, $this->email]);
+    
+            return $query->rowCount() > 0;
+        } catch (Exception $e) {
+            echo "Erreur lors de la mise à jour du jeton de réinitialisation : " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    
+    public function generateResetToken() {
+        // Génération du jeton
+        $resetToken = bin2hex(random_bytes(32));
+    
+        // Mise à jour de la base de données avec le jeton généré
+        $this->updateResetToken($resetToken);
+    
+        // Retournez le jeton généré
+        return $resetToken;
+    }
+
+    public function isResetTokenValid($token) {
+        try {
+            // Récupérer le jeton et la date d'expiration de la base de données
+            $query = $this->conn->prepare("SELECT reset_token, reset_token_expires FROM users WHERE email = ?");
+            $query->execute([$this->email]);
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+    
+            if ($result) {
+                $dbToken = $result['reset_token'];
+                $expirationTime = strtotime($result['reset_token_expires']);
+                $currentTime = time();
+    
+                echo "Reset Token (Session): $token<br>";
+                echo "Reset Token (DB): $dbToken<br>";
+                echo "Expiration Time (String): {$result['reset_token_expires']}<br>";
+    
+                echo "DB Token: $dbToken<br>";
+    
+                // Vérifier la validité du jeton
+                if ($token === $dbToken && $currentTime <= $expirationTime) {
+                    return true;
+                }
+                echo "Token Comparison: " . ($token === $dbToken ? 'true' : 'false') . "<br>";
+                echo "Time Comparison: " . ($currentTime <= $expirationTime ? 'true' : 'false') . "<br>";
+                return false;
+            } else {
+                echo "No result found for email: {$this->email}<br>";
+                return false;
+            }
+        } catch (Exception $e) {
+            echo "Erreur lors de la vérification du jeton de réinitialisation : " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function clearResetToken() {
+        try {
+            $query = $this->conn->prepare("UPDATE users SET reset_token = NULL, reset_token_expires = NULL WHERE email = ?");
+            $query->execute([$this->email]);
+
+            return $query->rowCount() > 0;
+        } catch (Exception $e) {
+            echo "Erreur lors de l'effacement du jeton de réinitialisation : " . $e->getMessage();
+            return false;
+        }
+    }
+
 }
 ?>
