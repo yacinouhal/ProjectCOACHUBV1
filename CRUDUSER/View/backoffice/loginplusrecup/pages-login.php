@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../Model/config.php';
+include '../../../Model/config.php';
 
 // Utilisez la fonction pour obtenir la connexion
 $conn = getConnexion();
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $userResult['id']; // Stocker l'ID de l'utilisateur dans la session
 
         if ($userResult['type'] == 'client') {
-            header('Location: Client Dashboard.php'); // Rediriger vers le tableau de bord client
+            header('Location: error-404.html'); // Rediriger vers le tableau de bord client
         } elseif ($userResult['type'] == 'professionnel') {
             header('Location: error-404.html'); // Rediriger vers le tableau de bord professionnel
         } else {
@@ -71,26 +71,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Ajoutez ici vos liens vers les feuilles de style, scripts, etc. -->
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post" action="">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        
-        <button type="submit">Login</button>
-    </form>
-    
-    <p><a href="forgot-password.php">Mot de passe oublié ?</a></p>
-    
-    <!-- Ajoutez ici d'autres éléments de votre page, comme des liens vers la récupération de mot de passe, etc. -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="../css/Login.css" />
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="login">
+      <img class="logo-coachub" src="../assets/img/coachubblanc.svg" alt="" />
+      <form class="login-form" methode="post" action="">
+        <input
+          type="email"
+          placeholder="your Email  'example@gmail.com'"
+          class="input"
+        />
+        <p class="email-failed"></p>
+        <input type="password" placeholder="your Password " class="input" />
+        <p class="password-failed"></p>
+
+        <div class="login-button">LOGIN</div>
+        <a href="forgot-password.php" class="Forget-password">Forget Password</a>
+        <hr class="ligne" />
+        <div class="socialmedia">
+          <img class="email-login" src="../assets/img/google-svgrepo-com.svg" alt="" />
+          <img class="github-login" src="../assets/img/github-svgrepo-com.svg" alt="" />
+          <img class="linkedin-login" src="../assets/img/linkedin-svgrepo-com.svg" alt="" />
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
+

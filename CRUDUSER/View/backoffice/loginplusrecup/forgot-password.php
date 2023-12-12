@@ -1,11 +1,11 @@
 <?php
 session_start();
-include '../../Model/config.php';
-include '../../Model/user.class.php';
+include '../../../Model/config.php';
+include '../../../Model/user.class.php';
 
-require '../../PHPMailer-master/src/Exception.php';
-require '../../PHPMailer-master/src/PHPMailer.php';
-require '../../PHPMailer-master/src/SMTP.php';
+require '../../../PHPMailer-master/src/Exception.php';
+require '../../../PHPMailer-master/src/PHPMailer.php';
+require '../../../PHPMailer-master/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -22,7 +22,7 @@ function sendResetEmail($userEmail, $resetToken) {
     echo "User Email: $userEmail<br>";
     echo "Reset Token: $resetToken<br>";
     // Construire le lien de réinitialisation
-    $resetLink = "http://localhost/COACHHUB/CRUDUSER/View/backoffice/reset-password.php?token=$resetToken";
+    $resetLink = "http://localhost/COACHHUB/CRUDUSER/View/backoffice/loginplusrecup/reset-password.php?token=$resetToken";
 
     // Configuration de PHPMailer
     $mail = new PHPMailer(true);
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             sendResetEmail($email, $resetToken);
             
         // Rediriger l'utilisateur vers une page de confirmation
-        header('Location: forgot-password-confirm.php');
+        header('Location: sended.php');
         exit;
     
     } else {
@@ -102,18 +102,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- ... (no changes in this section) -->
-</head>
-<body>
-    <h2>Forgot Password</h2>
-    <!-- Formulaire pour saisir l'e-mail -->
-    <form method="post" action="">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <button type="submit">Reset Password</button>
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="../css/forgotpasswordView.css" />
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="login">
+      <img class="logo-coachub" src="../assets/img/coachubblanc.svg" alt="" />
+      <form class="login-form" method="post" action="forgot-password.php">
+        <input
+          type="email"
+          name="email"
+          placeholder="your Email  'example@gmail.com'"
+          class="input"
+        />
+        <p class="email-failed"></p>
+        <button type="submit" name="resetPassword" class="Send-Button">Reset Password</button>
+
+      </form>
+    </div>
+  </body>
 </html>

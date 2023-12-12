@@ -1,0 +1,100 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100Dvh;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0.5px solid #ccc;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(22, 191, 247, 0.5);
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    color: #666;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input[readonly] {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.product-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #666;
+    padding: 10px;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+img {
+    border: 1px solid #ccc;
+}
+
+.product-info {
+    margin-left: 30px; 
+}
+
+.total-amount {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 40px; 
+    padding: 5px;
+    margin-left: 10px;
+}
+
+

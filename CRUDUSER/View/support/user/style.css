@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e5f3f3; /* Light blue background gradient */
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: linear-gradient(to bottom, #ffffff, #f0f8ff); /* White to light blue gradient */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Increased box shadow for depth */
+}
+
+h1 {
+    color: #2c3e50; /* Dark blue text */
+}
+
+p {
+    color: #34495e; /* Medium blue text */
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50; /* Dark blue text for labels */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #bdc3c7; /* Light blue border */
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out; /* Smooth border transition */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #3498db; /* Highlight border on focus */
+}
+
+button {
+    padding: 15px;
+    background: linear-gradient(to bottom, #2ecc71, #27ae60); /* Green button gradient */
+    color: #fff; /* White button text */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out; /* Smooth background transition */
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #27ae60, #219d53); /* Darker green on hover */
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+    resize: none; /* Disable textarea resizing */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #3498db;
+}
+
+/* Admin Styles */
+body.admin {
+    background-color: #ecf0f1; /* Light gray background */
+}
+
+container.admin {
+    background: #fff; /* White background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Increased box shadow for depth */
+    text-align: center;
+    padding: 50px;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+
+h1.admin {
+    color: #3498db; /* Dark blue text for heading */
+}
+
+/* Additional styles for the table in admin_dashboard.php */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #bdc3c7; /* Light blue border */
+    padding: 15px; /* Same padding as in index.php */
+    text-align: left;
+}
+
+th {
+    background-color: #3498db; /* Dark blue background for table header */
+    color: #fff; /* White text for table header */
+}
+
+
+
+.submission {
+    background: #fff; /* White background for each submission block */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Increased box shadow for depth */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.submission h2 {
+    color: #3498db; /* Dark blue text for submission heading */
+}
+
+
+.delete-form {
+    position: relative;
+    display: inline-block; /* Ensures the button does not take the full width */
+}
+
+/* Style for the delete button (X icon) */
+.delete-form button {
+    position: absolute;
+    bottom: 190px;
+    left: 740px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #e74c3c; /* Red color for the delete button */
+    cursor: pointer;
+}
+
+/* Style for the delete button on hover */
+.delete-form button:hover {
+    color: #c0392b; /* Darker red on hover */
+}
