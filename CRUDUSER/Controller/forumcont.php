@@ -1,7 +1,7 @@
 <?php
-include '../Model/config.php'; 
-include '../Model/Post.php';
-include '../Model/comment.php';
+include '../../Model/config.php'; 
+include '../../Model/Post.php';
+include '../../Model/comment.php';
 
 class forumController
 {
@@ -34,7 +34,7 @@ class forumController
     public function addPost(Post $post)
     {
         $sql = "INSERT INTO posts (title, author, content) VALUES (:title, :author, :content)";
-        $db = config::getConnexion();
+        $db = getConnexion();
         try {
             $query = $db->prepare($sql);
             $query->execute([
@@ -50,7 +50,7 @@ class forumController
     public function deletePost($postId)
     {
         $sql = "DELETE FROM posts WHERE id = :id";
-        $db = config::getConnexion();
+        $db = getConnexion();
         $req = $db->prepare($sql);
         $req->bindValue(':id', $postId);
 
@@ -64,7 +64,7 @@ class forumController
     public function updatePost(Post $post)
     {
         $sql = "UPDATE posts SET title = :title, author = :author, content = :content WHERE id = :id";
-        $db = config::getConnexion();
+        $db = getConnexion();
         $query = $db->prepare($sql);
 
         try {
@@ -84,7 +84,7 @@ class forumController
     public function getPost($postId)
     {
         $sql = "SELECT * FROM posts WHERE id = :id";
-        $db = config::getConnexion();
+        $db = getConnexion();
         $query = $db->prepare($sql);
 
         try {
@@ -128,7 +128,7 @@ class forumController
 public function addComment(Comment $comment)
 {
     $sql = "INSERT INTO comments (author, content, post_id) VALUES (:author, :content, :post_id)";
-    $db = config::getConnexion();
+    $db = getConnexion();
 
     try {
         $query = $db->prepare($sql);
@@ -175,7 +175,7 @@ public function updateComment(Comment $comment)
 public function getCommentById($commentId)
 {
     $sql = "SELECT * FROM comments WHERE id = :id";
-    $db = config::getConnexion();
+    $db = getConnexion();
 
     try {
         $query = $db->prepare($sql);

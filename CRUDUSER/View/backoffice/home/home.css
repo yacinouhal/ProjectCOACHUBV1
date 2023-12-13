@@ -1,0 +1,211 @@
+/* Resetting default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: #212529;
+}
+
+/* Basic styling for navbar */
+.navbar {
+  background-color: #393939;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.logo-header {
+  width: 60%;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 30px;
+  display: flex;
+  height: 100px;
+  align-items: center;
+}
+
+.nav-list li {
+  padding: 15px;
+}
+
+.nav-list li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #393939;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 250px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropdown-content a:hover {
+  background-color: antiquewhite;
+  color: #212529;
+}
+
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #393939;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+  display: block;
+}
+.reaction-icons {
+  display: flex;
+  /* border-style: solid;
+  border-color: aliceblue; */
+  width: 150px;
+  margin-left: 30px;
+}
+.reaction-icons .login,
+.reaction-icons .basket {
+  width: 60%;
+  /* border-style: solid;
+  border-color: aliceblue; */
+}
+.basket,
+.login-icon {
+  width: 80%;
+}
+#hi,
+#hello {
+  /* border-style: solid;
+  border-color: antiquewhite; */
+  /* margin: 0; */
+  padding: 0;
+  width: 50px;
+  margin-right: 60px;
+}
+/* ---------------------main-------------- */
+main {
+  margin-top: 100px;
+}
+.header-main {
+  background: url("https://www.clhbasket.fr/wp-content/uploads/2021/06/marche-coach-sportif-1024x637.jpg");
+  height: 637px;
+  width: 100%;
+  background-size: cover; /* Ensures the background image covers the entire div */
+  background-position: center;
+}
+/*--------------- footer -----------------*/
+.container-footer {
+  background-color: #393939;
+  /* border-style: solid;
+  border-color: aliceblue; */
+  padding: 50px 0px;
+}
+.login {
+  /* width: 100%; */
+  /* background-color: #212529; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-form {
+  background-color: rgba(0, 0, 0, 0.364);
+  border-style: solid;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* border-color: rgb(0, 0, 0); */
+  border-width: 1px;
+  border-radius: 20px;
+  height: 450px;
+  width: 500px;
+  padding: 20px 50px;
+  margin-top: 10px;
+}
+.logo-coachub {
+  width: 20%;
+}
+input,
+textarea {
+  background-color: transparent;
+  border-style: solid;
+  padding: 10px;
+  border-radius: 5px;
+  width: 400px;
+  color: white;
+}
+input:hover,
+textarea:hover {
+  border-style: solid;
+  border-color: #feeb15;
+}
+input:focus,
+textarea:focus {
+  border: none;
+
+  background-color: #feeb1564;
+}
+.input,
+textarea {
+  margin-top: 20px;
+}
+.login-button {
+  height: 40px;
+  width: 400px;
+  background-color: #feeb15;
+  color: #212529;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.login-button:hover {
+  cursor: pointer;
+  border-color: #feeb15;
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  color: #feeb15;
+  border-radius: 5px;
+}
+
+.Forget-password {
+  color: #feeb15;
+  margin-top: 50px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.h2-footer {
+  margin: 20px 0px;
+  color: #feeb15;
+}

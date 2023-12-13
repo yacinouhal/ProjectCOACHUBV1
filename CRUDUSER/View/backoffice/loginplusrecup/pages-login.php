@@ -54,9 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $userResult['id']; // Stocker l'ID de l'utilisateur dans la session
 
         if ($userResult['type'] == 'client') {
-            header('Location: error-404.html'); // Rediriger vers le tableau de bord client
-        } elseif ($userResult['type'] == 'professionnel') {
-            header('Location: error-404.html'); // Rediriger vers le tableau de bord professionnel
+            header('Location: ../home/home.php'); // Rediriger vers le tableau de bord client
         } else {
             // Type d'utilisateur non reconnu, rediriger vers une page d'erreur
             header('Location: error-404.html');
@@ -93,17 +91,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <body>
     <div class="login">
       <img class="logo-coachub" src="../assets/img/coachubblanc.svg" alt="" />
-      <form class="login-form" methode="post" action="">
+      <form class="login-form" method="POST" action="">
         <input
           type="email"
           placeholder="your Email  'example@gmail.com'"
+          name="email"
           class="input"
         />
         <p class="email-failed"></p>
-        <input type="password" placeholder="your Password " class="input" />
+        <input type="password" name="password" placeholder="your Password " class="input" />
         <p class="password-failed"></p>
 
-        <div class="login-button">LOGIN</div>
+        <button type="submit" class="login-button">LOGIN</button>
         <a href="forgot-password.php" class="Forget-password">Forget Password</a>
         <hr class="ligne" />
         <div class="socialmedia">

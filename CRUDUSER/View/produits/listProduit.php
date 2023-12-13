@@ -2,7 +2,10 @@
 session_start(); // Ajout de session_start()
 
 include '../../Model/ProduitP.php';
-
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../../backoffice/loginplusrecup/pages-login.php'); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    exit;
+}
 $produitC = new ProduitC();
 $list = $produitC->listProduits();
 

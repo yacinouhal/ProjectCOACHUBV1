@@ -27,7 +27,5 @@
 
         <p>We appreciate your feedback. Our administrators will review your submission and assist you as soon as possible.</p>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

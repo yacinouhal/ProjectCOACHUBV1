@@ -1,6 +1,6 @@
 <?php
-include '../../../Model/db_connection.php';
-include '../../../Model/SubmissionHandler.php';
+include '../../Model/db_connection.php';
+include '../../Model/SubmissionHandler.php';
 
 // Instanciez la classe SubmissionHandler
 $submissionHandler = new SubmissionHandler($conn);
