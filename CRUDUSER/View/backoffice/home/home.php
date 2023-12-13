@@ -37,6 +37,7 @@
         <li><a href="#">PRODUCTS</a></li>
         <li><a href="#">A PROPOS</a></li>
         <li><a href="#">CONTACT</a></li>
+        <li><a href="addpost.php">Forum</a></li>
 
         <li class="dropdown" id="hello">
           <a href="" class="dropbtn"

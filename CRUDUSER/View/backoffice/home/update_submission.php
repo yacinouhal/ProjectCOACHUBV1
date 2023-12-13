@@ -1,6 +1,8 @@
 <?php
-include '../../../Model/db_connection.php';
-include '../../../Model/SubmissionHandler.php';
+session_start(); // Démarre la session
+
+include '../../Model/db_connection.php';
+include '../../Model/SubmissionHandler.php';
 
 // Instanciez la classe SubmissionHandler
 $submissionHandler = new SubmissionHandler($conn);
@@ -30,6 +32,9 @@ if ($row) {
 
         // Exécuter la requête
         $stmt->execute();
+
+        // Stocker l'ID de soumission dans la session
+        $_SESSION['submission_id'] = $submissionId;
 
         // Rediriger vers une page de succès
         header("Location: success.php");
