@@ -1,0 +1,37 @@
+/* Basic styling for navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.navbar .tab-link {
+  padding: 8px 15px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar .tab-link.active {
+  background-color: #ddd;
+}
+
+.tab-content {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}

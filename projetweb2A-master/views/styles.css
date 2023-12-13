@@ -1,0 +1,147 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  background: url('back.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to make text readable */
+  padding: 20px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this to your existing CSS */
+
+
+/* Add this to your existing CSS */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="submit"],
+input[type="reset"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+
+a {
+  text-decoration: none;
+  color: #007bb5; /* Change this color as per your branding */
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #004266; /* Change this color as per your branding */
+}
+
+ /* Add this to your existing CSS */
+
+.icon-field {
+  display: flex;
+  align-items: center;
+}
+
+.field-icon {
+  margin-right: 10px; /* Adjust the margin based on your preference */
+  width: 20px; /* Adjust the width based on your icon size */
+  height: 20px; /* Adjust the height based on your icon size */
+}
+
+/* Adjust the width and height based on your icon size */
+input[type="date"],
+input[type="submit"],
+input[type="reset"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.search-container {
+  float: right;
+  margin: 10px 20px;
+}
+
+#searchInput {
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+}
+
+.center-button {
+  text-align: center;
+  margin-top: 20px;
+}

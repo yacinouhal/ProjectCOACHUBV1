@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>ProTrainer - Navbar</title>
-   <!-- <link rel="stylesheet" href="home.css" />-->
+   <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -68,7 +68,7 @@
             We are listening to you. Do not hesitate to contact us !
           </center>
         </h3>
-        <form class="login-form" method="POST" action="">
+        <form class="login-form" method="POST" action="insert.php">
           <input type="fullname" name="name" placeholder="your FullName " class="input" />
           <p class="fullname-failed"></p>
           <input
@@ -103,7 +103,7 @@
             endforeach;
         } else {
             // Affichez un message si $listOfSubmissions n'est pas défini ou est nul
-            echo "Aucune soumission n'a été trouvée.";
+            exit;
         }
         ?>
     </div>

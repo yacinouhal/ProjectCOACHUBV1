@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bordered Navbar Tabs</title>
+    <link rel="stylesheet" href="test2.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="tab-link active" onclick="showTab('home')">Home</a>
+      <a href="#" class="tab-link" onclick="showTab('about')">About</a>
+      <a href="#" class="tab-link" onclick="showTab('services')">Services</a>
+      <a href="#" class="tab-link" onclick="showTab('contact')">Contact</a>
+    </nav>
+
+    <div class="tab-content" id="tabContent">
+      <div class="tab-pane active" id="home">Home Content</div>
+      <div class="tab-pane" id="about">About Content</div>
+      <div class="tab-pane" id="services">Services Content</div>
+      <div class="tab-pane" id="contact">Contact Content</div>
+    </div>
+
+    <script src="test2.js"></script>
+  </body>
+</html>
